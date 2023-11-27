@@ -25,11 +25,11 @@ read_input_file:
 		
 	# checking it
 	checkStrSize(t0, a1)
-	bnez a0 read_input_file
+	bnez a0 end
 	
 	# checking our file
 	checkFile(t0)
-	bnez a0 read_input_file
+	bnez a0 end
 read_output_file:
 	# read the result file path
 	readString(ou_path, p_count, "Enter the path of result file:")
@@ -37,7 +37,7 @@ read_output_file:
 	
 	# checking it	
 	checkStrSize(t0, a1)
-	bnez a0 read_output_file
+	bnez a0 end
 	
 	# get the text from file
 	readFile(in_path, b_size)
@@ -70,4 +70,4 @@ cont:	mv 	s0 a0
 	# if user doesn't want it^ the program would stop
 	main_return:
 	pop(ra)
-	exit
+end:	exit
